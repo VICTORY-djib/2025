@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAGA - Nos Services de Réseau et Cloud</title>
+    <meta name="description" content="Découvrez nos services détaillés : infrastructure réseau, cybersécurité, solutions cloud et support technique.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .service-card {
+            border: 1px solid #eee;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--color-turquoise);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            color: var(--color-dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="logo">ZAGA</a>
+                <form class="search-bar" action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="text" name="q" placeholder="Rechercher sur Google ou ZAGA..." required>
+                    <input type="hidden" name="sitesearch" value="votresite.com"> 
+                    <button type="submit" title="Lancer la recherche">...</button>
+                </form>
+                <div class="user-actions">
+                    <a href="https://accounts.google.com/signin" target="_blank" title="Se connecter via Gmail"><i class="fab fa-google"></i> CONNECT. GMAIL</a>
+                    <a href="#" title="Ma liste de souhaits">WISHLIST</a>
+                    <a href="#" title="Mon compte/Panier">...</a>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">ACCUEIL</a></li>
+                    <li><a href="about.html">À PROPOS</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="category-bar">
+        <div class="container">
+            <ul>
+                <li><a href="#">RÉSEAU INFORMATIQUE</a></li>
+                <li><a href="#">Catégorie 1</a></li>
+                <li><a href="#">Catégorie 2</a></li>
+                <li><a href="#">Catégorie 3</a></li>
+                <li><a href="#">Catégorie 4</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container" style="padding: 50px 15px; background-color: white;">
+        <h1 style="color: var(--color-dark-blue); border-bottom: 3px solid var(--color-turquoise); padding-bottom: 5px;">Nos Solutions Détaillées</h1>
+
+        <div class="service-card">
+            <h3>RESEAU INFORMATIQUE</h3>
+            <p>🧱 Étape 1 : Les Fondations du Réseau (Les Composants)
+Avant toute chose, un réseau nécessite des éléments matériels pour exister.
+1.1. Identifier les Nœuds
+• Hôtes (Clients et Serveurs) : Ce sont les appareils qui génèrent ou consomment les données (PC, téléphones, imprimantes, serveurs).
+• Adresses MAC : Chaque carte réseau d'un hôte possède une adresse physique unique (Media Access Control), essentielle pour la communication locale.
+1.2. Mettre en Place les Interconnexions
+• Support de Transmission : Déterminer le moyen de relier les hôtes (câbles Ethernet, fibre optique, ou ondes radio pour le Wi-Fi).
+• Commutateur (Switch) : Placé au centre d'un Réseau Local (LAN), il relie tous les hôtes entre eux et dirige le trafic basé sur les adresses MAC.
+1.3. Se Connecter au Monde Extérieur
+• Routeur (Router) : C'est le point de connexion entre votre réseau local (LAN) et les autres réseaux (WAN), comme Internet. Il est chargé de trouver les chemins.
+⚙ Étape 2 : L'Organisation Logique (L'Adressage)
+Pour que les appareils puissent se trouver et communiquer au-delà du simple LAN, un système d'adressage logique est nécessaire.
+2.1. Attribution des Adresses IP
+• IP (Internet Protocol) : Chaque hôte reçoit une adresse logique unique (ex. IPv4 : 192.168.1.1). C'est l'adresse que le routeur utilise.
+• DHCP (Dynamic Host Configuration Protocol) : Un serveur ou le routeur attribue automatiquement et dynamiquement ces adresses IP aux hôtes qui se connectent, simplifiant la gestion.
+2.2. Segmentation (Sous-réseaux)
+• Masque de Sous-réseau : Utilisé pour déterminer quelle partie de l'adresse IP représente le réseau et quelle partie représente l'hôte.
+• Sous-réseautage (Subnetting) : Diviser un grand réseau en segments plus petits pour améliorer la performance et la sécurité.
+2.3. Traduction des Noms
+• DNS (Domain Name System) : Le protocole qui traduit les noms de domaine lisibles par l'humain (ex: google.com) en adresses IP numériques (ex: 142.250.66.78) que les machines comprennent.
+📦 Étape 3 : Le Voyage des Données (La Communication)
+Le modèle TCP/IP régit la façon dont les données sont préparées et envoyées à travers le réseau.
+3.1. Préparation des Données (Couches Application et Transport)
+1. Application : Le logiciel (navigateur, e-mail) crée les données.
+2. Transport (TCP/UDP) : Les données sont découpées en segments.
+• TCP (Transmission Control Protocol) est utilisé pour les données critiques (garantit la livraison et l'ordre).
+• UDP (User Datagram Protocol) est utilisé pour les données sensibles au temps (streaming, voix), où la vitesse prime sur la perte occasionnelle.
+3.2. L'Encapsulation (Ajout des En-têtes)
+1. Couche Internet (IP) : Un en-tête IP est ajouté au segment, créant un paquet. Cet en-tête contient les adresses IP source et destination.
+2. Couche Accès Réseau : Un en-tête MAC est ajouté au paquet, créant une trame. Cet en-tête contient les adresses MAC locales pour le saut immédiat (Routeur).
+3.3. Acheminement Local (Commutateur)
+• La trame est envoyée sur le LAN. Le Switch lit l'adresse MAC de destination et la dirige vers le bon port, évitant d'inonder le réseau.
+🗺 Étape 4 : Le Routage Inter-Réseaux
+C'est le rôle du Routeur de guider le paquet à travers le vaste WAN (Internet).
+4.1. Décision du Routeur
+1. Le Routeur reçoit la trame, retire l'en-tête MAC et examine l'en-tête IP (paquet).
+2. Il consulte sa Table de Routage : une base de données qui lui dit où envoyer le paquet pour qu'il se rapproche de sa destination.
+3. Il choisit le meilleur chemin, met à jour le paquet (diminue le Time To Live ou TTL) et détermine l'adresse MAC du prochain Routeur.
+4.2. Traduction d'Adresses (NAT)
+• NAT (Network Address Translation) : Processus essentiel qui permet à tous les appareils de votre LAN (avec des adresses IP privées) de partager une seule adresse IP publique pour communiquer sur Internet, préservant ainsi les adresses publiques.
+4.3. Destination Finale
+• Le paquet traverse des dizaines de routeurs (les sauts) jusqu'à ce qu'il atteigne le réseau de destination.
+• Le dernier routeur de bordure envoie le paquet à l'hôte final qui procède à la désencapsulation (enlève les en-têtes couche par couche) pour délivrer les données à l'application.
+🛡 Étape 5 : Sécurité et Maintenance
+Un réseau fonctionnel doit être sécurisé et entretenu.
+5.1. Protection du Périmètre
+• Pare-feu (Firewall) : Définit des règles pour filtrer le trafic entrant et sortant, agissant comme un point de contrôle entre le LAN et le WAN.
+• Chiffrement (HTTPS) : Utilisation de protocoles comme TLS/SSL pour chiffrer les communications, rendant les données illisibles en cas d'interception.
+5.2. Accès à Distance Sécurisé
+• VPN (Virtual Private Network) : Crée un tunnel sécurisé et chiffré sur Internet, permettant aux utilisateurs distants d'accéder au réseau privé comme s'ils étaient localement connectés.
+5.3. Suivi des Performances
+• Surveillance : Mesurer la bande passante (capacité) et la latence (délai) pour garantir une expérience utilisateur fluide et diagnostiquer les problèmes.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>Cybersécurité </h3>
+            <p>le 6: Cybersécurité Cours
+Introduction à la cybersécurité
+Module1 :
+1. Qu’est-ce que la cybersécurité ?
+ Définition : Effort continu pour protéger les individus, organisations et gouvernements
+contre les attaques numériques.
+ Niveaux de protection :
+ Personnel : Identité, données, appareils.
+ Professionnel : Réputation, données clients, actifs de l’entreprise.
+ Gouvernemental : Sécurité nationale, stabilité économique, bien-être des citoyens.
+2. Protection des données personnelles
+ Données personnelles : Toute information permettant de vous identifier (nom, adresse,
+photos, messages, etc.).
+ Identité hors ligne : Informations partagées dans la vie quotidienne (famille, amis, travail).
+ Identité en ligne : Présentation numérique (nom d’utilisateur, profils sociaux).
+ Risques :
+ Usurpation d’identité.
+ Vol de données médicales ou bancaires.
+ Partage non contrôlé (ex. : photos publiées sans consentement).
+3. Types de données d’entreprise
+ Données traditionnelles :
+ Transactionnelles : Achats, ventes, production.
+ Propriété intellectuelle : Brevets, secrets commerciaux.
+ Financières : Bilans, comptes de résultat.
+ Internet des Objets (IoT) et Big Data :
+ Capteurs et objets connectés génèrent d’énormes volumes de données.
+ Risque accru de violations avec l’expansion des équipements connectés.
+4. Modèle de sécurité : le Cube de McCumber
+ 3 dimensions :
+1. Principes fondamentaux :
+ Confidentialité : Protéger l’accès aux informations (chiffrement,
+authentification).
+ Intégrité : Garantir que les données ne sont pas altérées (hachage, somme de
+contrôle).
+BTS SRIC 1/14
+Module 6: Cybersécurité Cours
+ Disponibilité : Assurer l’accès aux systèmes et données pour les utilisateurs
+autorisés.
+2. États des données :
+ Traitement (en cours d’utilisation)
+ Stockage (au repos)
+ Transmission (en transit)
+3. Mesures de sécurité :
+ Sensibilisation et formation
+ Technologies (pare-feux, antivirus)
+ Politiques et procédures (plans de réponse aux incidents)
+5. Types de cybercriminels
+ Hackers amateurs (Script Kiddies) : Utilisent des outils prêts à l’emploi, peu
+expérimentés.
+ Pirates informatiques :
+ Chapeau blanc : Testent la sécurité avec autorisation.
+ Chapeau gris : Signalent les failles si cela les arrange.
+ Chapeau noir : Agissent à des fins malveillantes ou lucratives.
+ Hackers organisés :
+ Cybercriminels professionnels, hacktivistes, États.
+ Très structurés, bien financés, objectifs ciblés.
+6. Menaces internes et externes
+ Internes :
+ Employés ou partenaires qui, intentionnellement ou non, exposent des données.
+ Ex. : cliquer sur un lien malveillant, connecter un périphérique infecté.
+ Externes :
+ Pirates exploitant des vulnérabilités réseau ou utilisant l’ingénierie sociale.
+7. Cyberguerre et attaques étatiques
+ Objectifs :
+ Espionnage industriel ou militaire.
+ Sabotage d’infrastructures critiques (ex. : réseau électrique).
+ Exemple célèbre : Stuxnet
+ Malware conçu pour endommager physiquement des équipements industriels.
+ Ciblait des centrifugeuses iraniennes dans le cadre du programme nucléaire.
+BTS SRIC 2/14
+Module 6: Cybersécurité Cours
+8. Conséquences des violations de données
+ Exemples réels :
+ Razer (2020) : Données de 100 000 clients exposées via une mauvaise configuration
+cloud.
+ Equifax (2017) : Vol de données sensibles de millions de clients via une faille web.
+ Impacts :
+ Perte de confiance,
+ Préjudice financier,
+ Atteinte à la réputation,
+ Risques juridiques.
+9. Points clés à retenir
+ La cybersécurité est une responsabilité partagée.
+ Protéger ses données personnelles et professionnelles est essentiel.
+ Comprendre les types de menaces et les profils des attaquants aide à mieux se défendre.
+ Les violations de données peuvent avoir des conséquences durables.
+BTS SRIC 3/14
+Module 6: Cybersécurité Cours
+Module2 : Attaques, Concepts et Techniques
+1. Types de logiciels malveillants (Malwares)
+ Spyware (Logiciel espion) : Surveille l'activité en ligne, enregistre les frappes au clavier et
+vole des données personnelles. Se propage souvent avec des logiciels légitimes.
+ Adware (Publiciel) : Affiche des publicités intrusives. Peut être accompagné de spyware.
+ Backdoor (Porte dérobée) : Contourne l'authentification pour un accès à distance.
+Fonctionne discrètement en arrière-plan.
+ Ransomware (Rançongiciel) : Chiffre les données et exige une rançon. Se propage via des
+pièces jointes malveillantes ou des vulnérabilités logicielles.
+ Scareware : Utilise des alertes trompeuses pour inciter à installer un logiciel malveillant.
+ Rootkit : Modifie le système d'exploitation pour créer une porte dérobée. Difficile à
+détecter, nécessite souvent une réinstallation complète.
+ Virus : S'attache à des fichiers exécutables et se réplique. Nécessite une interaction
+utilisateur.
+ Cheval de Troie : Se fait passer pour un logiciel légitime mais exécute des actions
+malveillantes. Ne se réplique pas.
+ Ver (Worm) : Se propage automatiquement sans interaction utilisateur. Exploite les
+vulnérabilités réseau.
+2. Symptômes d'infection par un malware
+ Ralentissement de l'appareil (utilisation élevée du CPU).
+ Plantages fréquents.
+ Baisse des performances réseau.
+ Fichiers modifiés ou supprimés.
+ Présence de fichiers ou programmes inconnus.
+ E-mails envoyés sans consentement.
+3. Ingénierie sociale
+ Définition : Manipulation psychologique pour obtenir des informations confidentielles.
+ Exemples :
+ Usurpation : Mentir pour obtenir des données.
+ Accès non autorisé : Suivre une personne dans une zone sécurisée.
+ Quid pro quo : Offrir un avantage en échange d'informations.
+4. Attaques par déni de service (DoS/DDoS)
+ DoS : Inonde une cible avec un trafic massif ou des paquets malformés pour la rendre
+indisponible.
+ DDoS : Version distribuée provenant de multiples sources (botnet), plus difficile à contrer.
+BTS SRIC 4/14
+Module 6: Cybersécurité Cours
+5. Botnets
+ Réseau d'appareils infectés (zombies) contrôlés à distance.
+ Utilisations : Envoi de spam, attaques DDoS, vol de mots de passe.
+ Détection : Filtres de trafic et services cloud comme Cisco SIO.
+6. Attaques sur le chemin
+ Man-in-the-Middle (MitM) : Interception des communications entre deux appareils pour
+voler des données.
+ Man-in-the-Mobile (MitMo) : Variante ciblant les appareils mobiles, capturant les codes de
+vérification SMS.
+7. Empoisonnement par SEO
+ Manipulation des résultats de recherche pour propulser des sites malveillants.
+ Objectif : Augmenter le trafic vers des sites hébergeant des malwares.
+8. Attaques de mots de passe
+ Spray de mots de passe : Test de mots de passe courants sur de nombreux comptes.
+ Attaque par dictionnaire : Utilisation d'une liste de mots courants.
+ Force brute : Test de toutes les combinaisons possibles.
+ Attaque par table arc-en-ciel : Utilisation de hashs précalculés pour inverser les mots de
+passe.
+ Interception du trafic : Capture de mots de passe non chiffrés lors de la transmission.
+9. Menaces persistantes avancées (APT)
+ Attaques complexes, à long terme, ciblant des organisations spécifiques.
+ Objectif : Installer des malwares personnalisés sans être détecté.
+ Financement : Souvent étatique ou organisationnel.
+10. Vulnérabilités matérielles
+ Rowhammer : Exploitation des défauts de conception de la RAM pour corrompre les
+données.
+ Meltdown et Spectre : Vulnérabilités des CPU permettant de lire la mémoire système.
+11. Vulnérabilités logicielles
+ Débordement de tampon : Écriture au-delà des limites de mémoire, provoquant des
+crashes.
+ Entrée non validée : Données malveillantes perturbant le fonctionnement d'un programme.
+ Conditions de course : Dépendance à l'ordre d'exécution des événements.
+ Failles de sécurité : Mauvaise implémentation de l'authentification ou du chiffrement.
+ Problèmes de contrôle d'accès : Accès physique permettant de contourner les sécurités.
+BTS SRIC 5/14
+Module 6: Cybersécurité Cours
+12. Mises à jour logicielles
+ Objectif : Corriger les vulnérabilités découvertes.
+ Pratiques recommandées :
+ Mettre à jour les systèmes d'exploitation et applications.
+ Utiliser des tests de pénétration et des équipes dédiées.
+13. Cryptomonnaie et Cryptojacking
+ Cryptomonnaie : Monnaie numérique utilisant la blockchain pour des transactions
+sécurisées et anonymes.
+ Cryptojacking : Utilisation non consentie des ressources d'un appareil pour miner des
+cryptomonnaies.
+14. Points clés à retenir
+ Les malwares sont variés et présentent des symptômes communs.
+ L'ingénierie sociale exploite la psychologie humaine.
+ Les attaques DoS/DDoS visent à perturber les services.
+ Les botnets, MitM/MitMo et l'empoisonnement SEO sont des méthodes d'infiltration
+courantes.
+ Les attaques de mots de passe exploitent des faiblesses d'authentification.
+ Les vulnérabilités matérielles et logicielles nécessitent des mises à jour régulières.
+ Les APT sont des attaques sophistiquées et ciblées.
+ Le cryptojacking est une menace émergente liée aux cryptomonnaies.
+BTS SRIC 6/14
+Module 6: Cybersécurité Cours
+Module3 : Protection des Données et Confidentialité
+1. Protection des appareils et réseaux
+ Sécurisation des équipements :
+ Activation du pare-feu
+ Installation d'antivirus et d'anti-espion
+ Mise à jour régulière des systèmes d'exploitation
+ Configuration de mots de passe robustes
+ Réseau sans fil domestique :
+ Modification du SSID et du mot de passe par défaut
+ Activation du chiffrement WPA2 (avec conscience des vulnérabilités comme
+KRACK)
+ Mise à jour du firmware du routeur
+ Utilisation d'un VPN pour une sécurité renforcée
+ Risques du Wi-Fi public :
+ Éviter l'accès aux informations sensibles
+ Désactivation du partage de fichiers
+ Utilisation obligatoire d'un VPN chiffré
+ Vérification des paramètres d'authentification
+2. Gestion des authentifications
+ Mots de passe forts :
+ Longueur : 8-64 caractères
+ Éviter les mots de passe courants
+ Pas de règles de composition complexes
+ Affichage du mot de passe pendant la saisie
+ Pas d'expiration obligatoire
+ Phrases secrètes :
+ Plus longues et plus faciles à mémoriser
+ Exemple : "Un_chat@imeLesCh1ens!"
+ Plus résistantes aux attaques par dictionnaire
+3. Chiffrement des données
+ Définition : Conversion des données en format illisible sans clé de déchiffrement
+ EFS (Encrypting File System) de Windows :
+ Chiffrement lié à un compte utilisateur spécifique
+BTS SRIC 7/14
+Module 6: Cybersécurité Cours
+ Étapes : Propriétés → Avancé → "Chiffrer le contenu"
+ Fichiers chiffrés affichés en vert
+ Limitations :
+ N'empêche pas l'interception
+ Protège seulement contre la lecture non autorisée
+4. Sauvegarde et destruction des données
+ Sauvegarde :
+ Stockage multiple : cloud, disque externe, réseau domestique
+ Automatisation des sauvegardes
+ Protection contre la perte de données irremplaçables
+ Suppression définitive :
+ Outils spécialisés : SDelete (Windows), Shred (Linux)
+ Écrasement multiple des données
+ Destruction physique pour une certitude absolue
+5. Compréhension des conditions de service
+ Éléments clés à analyser :
+ Conditions d'utilisation
+ Politique de confidentialité
+ Paramètres de sécurité
+ Droits sur les données
+ Questions essentielles :
+ Qui possède vos données?
+ Pouvez-vous récupérer vos données?
+ Que deviennent les données à la fermeture du compte?
+6. Protection de la vie privée en ligne
+ Authentification à deux facteurs (2FA) :
+ Combinaison mot de passe + jeton secondaire
+ Types : SMS, application, biométrie, clé physique
+ Utilisé par les grandes plateformes (Google, Facebook, etc.)
+ OAuth (Open Authorization) :
+ Accès à des applications tierces sans partager le mot de passe
+ Exemple : connexion via compte Google ou Facebook
+ Navigation privée :
+BTS SRIC 8/14
+Module 6: Cybersécurité Cours
+ Désactivation des cookies
+ Suppression de l'historique
+ Limitations : ne garantit pas l'anonymat complet
+7. Bonnes pratiques générales
+ Protection contre l'hameçonnage :
+ Vérification des expéditeurs d'e-mails
+ Activation de la navigation privée
+ Sensibilisation aux tactiques d'ingénierie sociale
+ Gestion proactive des données :
+ Lecture attentive des conditions de service
+ Utilisation d'outils de chiffrement
+ Sauvegarde régulière
+ Destruction sécurisée des données sensibles
+8. Points clés à retenir
+ La sécurité des appareils et réseaux est une responsabilité personnelle
+ Les mots de passe forts et la 2FA sont essentiels pour la protection des comptes
+ Le chiffrement protège les données contre l'accès non autorisé
+ La sauvegarde régulière prévient la perte de données importantes
+ La compréhension des conditions de service permet de contrôler l'usage de ses données
+ Les outils de navigation privée limitent le tracking mais n'offrent pas l'anonymat total.</p>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 20px 0; background-color: var(--color-dark-blue); color: var(--color-white);">
+            <p>&copy; 2025 ZAGA. Tous droits réservés. | <a href="mentions.html" style="color: var(--color-turquoise);">Mentions Légales</a></p>
+        </div>
+    </footer>
+</body>
+</html>
