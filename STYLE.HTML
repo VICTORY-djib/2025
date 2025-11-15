@@ -1,5 +1,15 @@
 /* style.css */
 
+/* Corrections et améliorations :
+   - Ajout de box-sizing global pour éviter problèmes de largeur.
+   - Sécurisation des transforms des vagues (évite conflit entre règle de base et keyframes).
+   - Recherche responsive (largeur max, pas fixe).
+   - Ajustements de z-index pour que l'en-tête/navigation restent au-dessus des vagues.
+   - Ajout d'un état actif pour la nav/catégories.
+   - Media queries pour rendre la section héro responsive.
+   - Petites corrections visuelles (padding/marges) pour coller au visuel fourni.
+*/
+
 /* Variables de couleur */
 :root {
     --color-dark-blue: #003366; /* Bleu très foncé pour le fond */
@@ -11,6 +21,13 @@
     --color-text: #333;
 }
 
+/* Global box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* Général */
 body {
     font-family: Arial, sans-serif;
@@ -18,6 +35,8 @@ body {
     padding: 0;
     background-color: var(--color-light-gray);
     color: var(--color-text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
 .container {
@@ -31,6 +50,8 @@ header {
     background-color: var(--color-white);
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 1000; /* pour être au-dessus des vagues */
 }
 
 .header-top {
@@ -54,7 +75,9 @@ header {
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 5px 15px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px; /* responsive */
+    background: #fff;
 }
 
 .search-bar input {
@@ -62,6 +85,8 @@ header {
     outline: none;
     flex-grow: 1;
     font-size: 1em;
+    background: transparent;
+    min-width: 0; /* pour éviter overflow sur flex */
 }
 
 .search-bar button {
@@ -76,16 +101,16 @@ header {
 .user-actions a {
     color: var(--color-dark-blue);
     margin-left: 20px;
-    font-size: 1em; 
+    font-size: 1em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    padding: 5px 10px; 
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
 .user-actions svg, .user-actions i {
-    font-size: 1.5em; 
+    font-size: 1.5em;
     margin-right: 5px;
 }
 
@@ -106,6 +131,8 @@ header {
 /* Navigation principale */
 nav {
     background-color: var(--color-medium-blue);
+    z-index: 900;
+    position: relative;
 }
 
 .main-nav ul {
@@ -113,6 +140,7 @@ nav {
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
 }
 
 .main-nav a {
@@ -124,14 +152,17 @@ nav {
     transition: background-color 0.3s;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a.active {
     background-color: var(--color-dark-blue);
 }
 
-/* Barre de catégories (comme dans l'image) */
+/* Barre de catégories */
 .category-bar {
-    background-color: var(--color-dark-blue); 
+    background-color: var(--color-dark-blue);
     padding: 0;
+    position: relative;
+    z-index: 850;
 }
 
 .category-bar ul {
@@ -139,11 +170,12 @@ nav {
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
 }
 
 .category-bar li {
-    background-color: var(--color-medium-blue); 
-    margin-right: 1px; 
+    background-color: var(--color-medium-blue);
+    margin-right: 1px;
 }
 
 .category-bar a {
@@ -155,23 +187,25 @@ nav {
     transition: background-color 0.3s;
 }
 
-/* Styles pour les catégories spécifiques pour correspondre au dégradé */
-.category-bar li:nth-child(2) {
-    background-color: var(--color-turquoise); 
-}
-.category-bar li:nth-child(3) {
-    background-color: #79D6E1; 
-}
-.category-bar li:nth-child(4) {
-    background-color: #92E3EB; 
+/* Couleurs individuelles pour faire un dégradé visuel */
+.category-bar li:nth-child(1) { background-color: var(--color-medium-blue); }
+.category-bar li:nth-child(2) { background-color: var(--color-turquoise); }
+.category-bar li:nth-child(3) { background-color: #79D6E1; }
+.category-bar li:nth-child(4) { background-color: #92E3EB; }
+
+/* Etat actif pour catégories (plus fiable que nth-child pour l'interactivité) */
+.category-bar a.active,
+.category-bar a:hover {
+    filter: brightness(0.9);
+    background-color: rgba(255,255,255,0.08);
 }
 
-/* Section "BIENVENU" (Héro) */
+/* Section "BIENVENUE" (Héro) */
 .hero-section {
     background-color: var(--color-white);
     padding: 40px 0 0 0;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .hero-content {
@@ -179,7 +213,8 @@ nav {
     justify-content: space-between;
     gap: 30px;
     position: relative;
-    z-index: 2; 
+    z-index: 2;
+    align-items: flex-start;
 }
 
 .hero-text {
@@ -198,7 +233,7 @@ nav {
 
 .hero-image {
     flex: 1;
-    min-width: 300px; 
+    min-width: 300px;
 }
 
 .hero-image img {
@@ -206,48 +241,59 @@ nav {
     height: auto;
     display: block;
     object-fit: cover;
-    max-height: 250px; 
-    margin-right: -15px; 
+    max-height: 250px;
+    margin-right: -15px;
+    border-radius: 2px;
 }
 
-/* Vagues CSS */
+/* Vagues CSS - corrections :
+   - suppression du transform statique sur .wave pour éviter conflit avec les keyframes.
+   - gestion de background-size pour un rendu fluide.
+*/
 .waves-container {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 220px; /* ajusté */
     overflow: hidden;
     z-index: 1;
+    pointer-events: none;
 }
 
 .wave {
     position: absolute;
     width: 200%;
     height: 100%;
-    background: none;
-    transform: rotate(180deg); 
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    will-change: transform;
+    /* pas de transform ici : keyframes le gèrent */
 }
 
+/* Plusieurs couches de vagues avec dégradés */
 .wave-1 {
-    top: 50px;
-    opacity: 0.9;
-    background: linear-gradient(90deg, transparent, rgba(0, 51, 102, 0.2) 20%, rgba(0, 51, 102, 0.4) 50%, rgba(0, 51, 102, 0.1) 80%, transparent);
+    top: 40px;
+    opacity: 0.95;
+    background: linear-gradient(90deg, transparent, rgba(0, 51, 102, 0.2) 20%, rgba(0, 51, 102, 0.35) 50%, rgba(0, 51, 102, 0.12) 80%, transparent);
     animation: wave-animation 10s linear infinite;
+    transform-origin: left center;
 }
 
 .wave-2 {
-    top: 100px;
+    top: 80px;
     opacity: 0.7;
     background: linear-gradient(90deg, transparent, rgba(0, 86, 179, 0.3) 20%, rgba(0, 86, 179, 0.5) 50%, rgba(0, 86, 179, 0.2) 80%, transparent);
     animation: wave-animation 15s linear infinite reverse;
+    transform-origin: left center;
 }
 
 .wave-3 {
-    top: 150px;
+    top: 120px;
     opacity: 0.5;
     background: linear-gradient(90deg, transparent, rgba(77, 208, 225, 0.4) 20%, rgba(77, 208, 225, 0.6) 50%, rgba(77, 208, 225, 0.3) 80%, transparent);
     animation: wave-animation 8s linear infinite;
+    transform-origin: left center;
 }
 
 @keyframes wave-animation {
@@ -257,4 +303,39 @@ nav {
     100% {
         transform: translate3d(-50%, 0, 0) rotate(180deg);
     }
+}
+
+/* Footer-like stripe (si souhaité) pour caler le bas et texte copyright */
+.site-footer {
+    background: linear-gradient(90deg, var(--color-dark-blue), var(--color-medium-blue));
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Responsive : empilement de la section héro */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-text {
+        padding-right: 0;
+    }
+    .hero-image {
+        min-width: 0;
+        max-height: 220px;
+    }
+    .search-bar {
+        max-width: 100%;
+    }
+}
+
+/* Petite amélioration d'accessibilité : focus visible */
+a:focus,
+button:focus,
+input:focus {
+    outline: 3px solid rgba(77,208,225,0.4);
+    outline-offset: 2px;
 }
